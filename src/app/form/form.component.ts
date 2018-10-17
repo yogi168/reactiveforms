@@ -9,29 +9,31 @@ import { FormBuilder } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  registerForm: FormGroup;
+  profileForm: FormGroup;
   submitted = false;
-
-  profileForm = this.fb.group({
-    firstName: ['',Validators.required],
-    lastName: ['',Validators.required],
-    email:['',[Validators.required,Validators.email]],
-    password:['',[Validators.required,Validators.minLength(8)]],
-    aadhar:['',[Validators.required,Validators.minLength(12),Validators.maxLength(12),Validators.pattern('[0-9]*')]],
-    pan:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]],
-    address1: [''],
-    address2: [''],
-    city:[''],
-    state:[''],
-    zip:['',[,Validators.minLength(6),Validators.maxLength(6)]] 
-   
-  });
+  
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  panPattern="[A-Z]{5}[0-9]{4}[A-Z]{1}";
 
   get f() { return this.profileForm.controls; }
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.profileForm = this.fb.group({
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      email:['',[Validators.required,Validators.email,Validators.pattern(this.emailPattern)]],
+      password:['',[Validators.required,Validators.minLength(8)]],
+      aadhar:['',[Validators.required,Validators.minLength(12),Validators.maxLength(12),Validators.pattern('[0-9]*')]],
+      pan:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern(this.panPattern)]],
+      address1: [''],
+      address2: [''],
+      city:[''],
+      state:[''],
+      zip:['',[,Validators.minLength(6),Validators.maxLength(6)]] 
+     
+    });
   }
   onSubmit() {
     this.submitted = true;
@@ -39,6 +41,7 @@ export class FormComponent implements OnInit {
     if (this.profileForm.invalid) {
       return;
     }
+    alert("Form Submitted Successfully");
     console.warn(JSON.stringify(this.profileForm.value));
   
     

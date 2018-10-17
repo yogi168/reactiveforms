@@ -7,3 +7,6 @@ input.ng-valid {
     .error {
     color: #ff0000;
     }
+    .fo{
+        padding: 5%;
+    }
