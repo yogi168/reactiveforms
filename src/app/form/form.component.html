@@ -1,0 +1,111 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <div class="row ">
+    <div class=" form-group col-md-6"><label> 
+      First Name:</label>
+      <input type="text" class="form-control" formControlName="firstName" placeholder="first name"  
+      [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+      <small *ngIf="f.firstName.touched && !f.firstName.valid" class="error">Required.</small>
+      <div *ngIf="submitted && f.firstName.errors " class="invalid-feedback">
+      <div *ngIf="f.firstName.errors.required">First Name is required</div></div> 
+    </div>
+
+    <div class="form-group col-md-6"><label>
+      Last Name:</label>
+      <input type="text" class="form-control" formControlName="lastName" placeholder="last name" 
+      [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+      <small *ngIf="f.lastName.touched && !f.lastName.valid" class="error">Required.</small>
+      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label >Email</label>
+      <input type="email" class="form-control" formControlName="email" placeholder="Email" 
+      [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+      <small *ngIf="f.email.touched && !f.email.valid" class="error">Required.</small>
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
+    </div>
+    <div class="form-group col-md-6">
+      <label >Password</label>
+      <input type="password" class="form-control" formControlName="password" placeholder="Password"
+      [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+      <small *ngIf="f.password.touched && !f.password.valid" class="error">Required.</small>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+  <div class=" col-md-6">
+    <label >Aadhar No.</label>
+    <input  type="text" class="form-control" formControlName="aadhar"  placeholder="AADHAR NUMBER"
+    [ngClass]="{ 'is-invalid': submitted && f.aadhar.errors }" />
+    <small *ngIf="f.aadhar.touched && !f.aadhar.valid" class="error">Required.</small>
+      <div *ngIf="submitted && f.aadhar.errors " class="invalid-feedback">
+        <div *ngIf="f.aadhar.errors.required">Aadhar number is required</div>
+        <div *ngIf="f.aadhar.errors.minlength">Aadhar number must be of 12 characters</div>
+        <div *ngIf="f.aadhar.errors.maxlength">Aadhar number should not be more then 12 characters</div>
+        <div *ngIf="f.aadhar.errors.pattern">Aadhar number must contain numerical data</div>
+      </div>
+    </div>
+  
+  
+  <div class=" col-md-6">
+    <label >PAN No.</label>
+    <input  type="text" class="form-control" formControlName="pan"  placeholder="PAN NUMBER"
+    [ngClass]="{ 'is-invalid': submitted && f.pan.errors }" />
+    <small *ngIf="f.pan.touched && !f.pan.valid" class="error">Required.</small>
+      <div *ngIf="submitted && f.pan.errors" class="invalid-feedback">
+        <div *ngIf="f.pan.errors.required">PAN number is required</div>
+        <div *ngIf="f.pan.errors.minlength">PAN number must be of 10 digits</div>
+        <div *ngIf="f.pan.errors.maxlength">PAN number should not be more then 10 characters</div>
+        <div *ngIf="f.pan.errors.pattern">PAN number should follow this pattern: [ABCDF3243S]</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label >Address</label>
+    <input  type="text" class="form-control" formControlName="address1"  placeholder="1234 Main St">
+  </div>
+
+  <div class="form-group">
+    <label >Address 2</label>
+    <input type="text"  class="form-control"  formControlName="address2" placeholder="Apartment, studio, or floor">
+  </div>
+
+  <div class="row">
+    <div class=" col-md-6">
+      <label >City</label>
+      <input type="text" class="form-control" formControlName="city" placeholder="city">
+    </div>
+    <div class=" col-md-4"> 
+    <label >State</label>
+      <select formControlName="state" class="form-control" >
+        <option selected>karnataka</option>
+        <option >Delhi</option>
+        <option>Rajasthan</option>
+        <option>Maharastra</option>
+      </select>
+    </div>
+
+    <div class=" col-md-2">
+      <label >Zip</label>
+      <input type="text" class="form-control" formControlName="zip">
+    </div>
+  </div><br>
+  <div class="form-row " style=" text-align: center">
+    <div class=" col-md-12">
+      <button type="submit" class= "btn btn-primary" >Submit</button>
+      <!-- [disabled]="!profileForm.valid" -->
+    </div>
+  </div>
+</form>
