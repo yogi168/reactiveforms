@@ -5,17 +5,17 @@
     <div class=" form-group col-md-6"><label> 
       First Name:</label>
       <input type="text" class="form-control" formControlName="firstName" placeholder="first name"  
-      [ngClass]="{ 'is-invalid': f.firstName.touched || submitted && f.firstName.errors }" />
+      [ngClass]="{ 'is-invalid': f.firstName.touched && f.firstName.errors }" />
       
-      <div *ngIf="f.firstName.touched || submitted && f.firstName.errors " class="invalid-feedback">
+      <div *ngIf="f.firstName.touched && f.firstName.errors " class="invalid-feedback">
       <div *ngIf="f.firstName.errors.required">First Name is required</div></div> 
     </div>
 
     <div class="form-group col-md-6"><label>
       Last Name:</label>
       <input type="text" class="form-control" formControlName="lastName" placeholder="last name" 
-      [ngClass]="{ 'is-invalid': f.lastName.touched || submitted && f.lastName.errors }" />
-      <div *ngIf="f.lastName.touched || submitted && f.lastName.errors" class="invalid-feedback">
+      [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors }" />
+      <div *ngIf="f.lastName.touched && f.lastName.errors" class="invalid-feedback">
       <div *ngIf="f.lastName.errors.required">Last Name is required</div>
       </div>
     </div>
@@ -25,8 +25,8 @@
     <div class="form-group col-md-6">
       <label >Email</label>
       <input type="email" class="form-control" formControlName="email" placeholder="Email" 
-      [ngClass]="{ 'is-invalid': f.email.touched || submitted && f.email.errors }" />
-      <div *ngIf="f.email.touched || submitted && f.email.errors" class="invalid-feedback">
+      [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
+      <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
         <div *ngIf="f.email.errors.required">Email is required</div>
         <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
       </div>
@@ -34,8 +34,8 @@
     <div class="form-group col-md-6">
       <label >Password</label>
       <input type="password" class="form-control" formControlName="password" placeholder="Password"
-      [ngClass]="{ 'is-invalid':f.password.touched || submitted && f.password.errors }" />
-      <div *ngIf="f.password.touched || submitted && f.password.errors" class="invalid-feedback">
+      [ngClass]="{ 'is-invalid':f.password.touched && f.password.errors }" />
+      <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
         <div *ngIf="f.password.errors.required">Password is required</div>
         <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
       </div>
@@ -45,8 +45,8 @@
   <div class=" col-md-6">
     <label >Aadhar No.</label>
     <input  type="text" class="form-control" formControlName="aadhar" maxlength="12" placeholder="AADHAR NUMBER"
-    [ngClass]="{ 'is-invalid':f.aadhar.touched || submitted && f.aadhar.errors }" />
-      <div *ngIf="f.aadhar.touched || submitted && f.aadhar.errors " class="invalid-feedback">
+    [ngClass]="{ 'is-invalid':f.aadhar.touched && f.aadhar.errors }" />
+      <div *ngIf="f.aadhar.touched && f.aadhar.errors " class="invalid-feedback">
         <div *ngIf="f.aadhar.errors.required">Aadhar number is required</div>
         <div *ngIf="f.aadhar.errors.minlength">Aadhar number must be of 12 characters</div>
         <div *ngIf="f.aadhar.errors.maxlength">Aadhar number should not be more then 12 characters</div>
@@ -58,8 +58,8 @@
   <div class=" col-md-6">
     <label >PAN No.</label>
     <input  type="text" class="form-control" formControlName="pan" maxlength="10" placeholder="PAN NUMBER"
-    [ngClass]="{ 'is-invalid':f.pan.touched || submitted && f.pan.errors }" />
-      <div *ngIf="f.pan.touched || submitted && f.pan.errors" class="invalid-feedback">
+    [ngClass]="{ 'is-invalid':f.pan.touched && f.pan.errors }" />
+      <div *ngIf="f.pan.touched && f.pan.errors" class="invalid-feedback">
         <div *ngIf="f.pan.errors.required">PAN number is required</div>
         <div *ngIf="f.pan.errors.minlength">PAN number must be of 10 digits</div>
         <div *ngIf="f.pan.errors.maxlength">PAN number should not be more then 10 characters</div>
@@ -68,8 +68,10 @@
     </div>
   </div>
 
+  <div formGroupName="address">
+      <h3>Address</h3>
   <div class="form-group">
-    <label >Address</label>
+    <label >Address1</label>
     <input  type="text" class="form-control" formControlName="address1"  placeholder="1234 Main St">
   </div>
 
@@ -98,10 +100,11 @@
       <input type="text" class="form-control" formControlName="zip">
     </div>
   </div><br>
+  </div>
   <div class="form-row " style=" text-align: center">
     <div class=" col-md-12">
-      <button type="submit" class= "btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Press to Submit">Submit</button>
-      <!-- [disabled]="!profileForm.valid" -->
+      <button type="submit" class= "btn btn-primary" [disabled]="!profileForm.valid" data-toggle="tooltip" data-placement="bottom" title="Press to Submit">Submit</button>
+     
     </div>
   </div>
 </form>

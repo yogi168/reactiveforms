@@ -27,12 +27,13 @@ export class FormComponent implements OnInit {
       password:['',[Validators.required,Validators.minLength(8)]],
       aadhar:['',[Validators.required,Validators.minLength(12),Validators.maxLength(12),Validators.pattern('[0-9]*')]],
       pan:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern(this.panPattern)]],
-      address1: [''],
-      address2: [''],
-      city:[''],
-      state:[''],
-      zip:['',[,Validators.minLength(6),Validators.maxLength(6)]] 
-     
+      address: this.fb.group({
+        address1: [''],
+        address2: [''],
+        city:[''],
+        state:[''],
+        zip:['',[,Validators.minLength(6),Validators.maxLength(6)]] 
+      })
     });
   }
   onSubmit() {

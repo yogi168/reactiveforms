@@ -8,5 +8,10 @@ input.ng-valid {
     color: #ff0000;
     }
     .fo{
-        padding: 5%;
+        padding: 7%;
     }
+
+::placeholder{
+    color: rgb(213, 217, 221);
+    opacity: 2;
+}
