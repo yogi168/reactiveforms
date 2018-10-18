@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder,  FormArray  } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -43,6 +43,8 @@ export class FormComponent implements OnInit {
     }
     alert("Form Submitted Successfully");
     console.warn(JSON.stringify(this.profileForm.value));
+    this.submitted = false;
+    this.profileForm.reset();
   
     
   }

@@ -47,7 +47,7 @@
   <div class="form-group row">
   <div class=" col-md-6">
     <label >Aadhar No.</label>
-    <input  type="text" class="form-control" formControlName="aadhar"  placeholder="AADHAR NUMBER"
+    <input  type="text" class="form-control" formControlName="aadhar" maxlength="12" placeholder="AADHAR NUMBER"
     [ngClass]="{ 'is-invalid': submitted && f.aadhar.errors }" />
     <small *ngIf="f.aadhar.touched && !f.aadhar.valid" class="error">Required.</small>
       <div *ngIf="submitted && f.aadhar.errors " class="invalid-feedback">
@@ -61,7 +61,7 @@
   
   <div class=" col-md-6">
     <label >PAN No.</label>
-    <input  type="text" class="form-control" formControlName="pan"  placeholder="PAN NUMBER"
+    <input  type="text" class="form-control" formControlName="pan" maxlength="10" placeholder="PAN NUMBER"
     [ngClass]="{ 'is-invalid': submitted && f.pan.errors }" />
     <small *ngIf="f.pan.touched && !f.pan.valid" class="error">Required.</small>
       <div *ngIf="submitted && f.pan.errors" class="invalid-feedback">
