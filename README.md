@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
-# DEMO
+# Demo
 
 [DEMO](https://mklimplp.github.stackblitz.io/)
 
